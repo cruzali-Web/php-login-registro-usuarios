@@ -1,3 +1,19 @@
+<?php
+	include("conexion.php");
+	session_start();
+
+	if (!isset($_SESSION['id_usuarios'])) {
+		header("Location: index.php");
+	}
+	
+	$iduser = $_SESSION['id_usuarios'];
+
+	$sql = "SELECT idusuarios, NombreC FROM usuarios WHERE idusuarios = '$iduser'";
+	$resultado = $conex->query($sql);
+	$row = $resultado->fetch_assoc();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -117,7 +133,7 @@
 								<span class="user-info">
 									<small>Bienvenid@</small>
 									<!-- Mostrar Nombre del Usuario Logueado-->
-									Jairo Galeas		
+									<?php echo utf8_decode($row['NombreC']);  ?>		
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -136,7 +152,7 @@
 								<li class="divider"></li>
 
 								<li>
-									<a href="#">
+									<a href="salir.php">
 										<i class="ace-icon fa fa-power-off"></i>
 										Salir
 									</a>

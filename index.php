@@ -1,5 +1,9 @@
-<?php 
+<?php
 	include("conexion.php");
+	session_start();
+	if (isset($_SESSION['id_usuarios'])) {
+		header("Location: admin.php");
+	}
 
 	// Login
 	if (!empty($_POST)) {
@@ -7,19 +11,22 @@
 		$password = mysqli_real_escape_string($conex, $_POST['pass']);
 		$password_encrypted = sha1($password);
 
-		$sqlCheckUser = "SELECT idusuario, from usuarios
-						WHERE usuario = '$usuario' and password = '$password_encrypted'";
+
+		$sqlCheckUser = "SELECT idusuarios from usuarios
+						WHERE usuario = '$user' and password = '$password_encrypted'";
+
+
 		$res = $conex->query($sqlCheckUser);
 		$rows = $res->num_rows;
-
+		
 		if ($rows > 0) {
 			$row = $res->fetch_assoc();
-			$_SESSION['id_usuario'] = $row['idusuario'];
+			$_SESSION['id_usuarios'] = $row['idusuarios'];
 			header("Location: admin.php");
 		} else {
 			echo "<script>
 				alert('Usuario o password incorrecto :(');
-				windows.location = 'index.php';
+				window.location = 'index.php';
 			</script>";
 		}
 	}
@@ -28,7 +35,8 @@
 
 
 	// Registrar user
-	if (isset($_POST["registrar"])) {
+	if (isset($_POST["registrar"])) 
+	{
 		$nombre 	= mysqli_real_escape_string($conex, $_POST['nombre']);
 		$correo 	= mysqli_real_escape_string($conex, $_POST['correo']);
 		$usuario 	= mysqli_real_escape_string($conex, $_POST['user']);
@@ -42,7 +50,7 @@
 		if ($filas > 0) {
 			echo "<script>
 				alert('El usuario ya existe');
-				windows.location = 'index.php';
+				window.location = 'index.php';
 			</script>";
 		} else {
 			// Insertar usuario
@@ -53,12 +61,12 @@
 				if ($resultadoUsuario > 0) {
 					echo "<script>
 						alert('Registro exitoso');
-						windows.location = 'index.php';
+						window.location = 'index.php';
 					</script>";
 				} else {
 					echo "<script>
 						alert('Error al intentar registrar usuario');
-						windows.location = 'index.php';
+						window.location = 'index.php';
 					</script>";
 				}
 		}
@@ -110,11 +118,10 @@
 						<div class="login-container">
 							<div class="center">
 								<h1>
-									<i class="ace-icon fa fa-leaf green"></i>
+									<i class="ace-icon fa fa-leaf red"></i>
 									<span class="red">Sistema </span>
 									<span class="white" id="id-text2">de Usuarios</span>
-								</h1>
-								<h4 class="blue" id="id-company-text">&copy; Impartiendo Conocimiento</h4>
+								</h1>								
 							</div>
 
 							<div class="space-6"></div>
@@ -134,7 +141,7 @@
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control"  name="user"placeholder="Usuario" />
+															<input type="text" class="form-control"  name="user" placeholder="Usuario" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>

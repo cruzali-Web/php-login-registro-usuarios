@@ -6,7 +6,7 @@
         echo "No conectado ", mysqli_connect_error();
         exit();
     } else {
-        echo "Conectado";
+        /*echo "Conectado";*/
     }
 
 ?>
