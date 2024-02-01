@@ -108,6 +108,7 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+		<link rel="stylesheet" href="assets/css/styles.css" />
 	</head>
 
 	<body class="login-layout">
@@ -117,11 +118,6 @@
 					<div class="col-sm-10 col-sm-offset-1">
 						<div class="login-container">
 							<div class="center">
-								<h1>
-									<i class="ace-icon fa fa-leaf red"></i>
-									<span class="red">Sistema </span>
-									<span class="white" id="id-text2">de Usuarios</span>
-								</h1>								
 							</div>
 
 							<div class="space-6"></div>
@@ -173,28 +169,8 @@
 												</fieldset>
 											</form>
 
-											<div class="social-or-login center">
-												<span class="bigger-110">Suscribete</span>
-											</div>
 
-											<div class="space-6"></div>
 
-											<div class="social-login center">
-												<a href="http://bit.ly/SuscribirseIC" target="_blank" class="btn btn-danger">
-													<i class="ace-icon fa fa-youtube" ></i>
-												</a>
-												<a href="https://www.facebook.com/impartiendoconocimiento" target="_blank" class="btn btn-primary">
-													<i class="ace-icon fa fa-facebook"></i>
-												</a>
-
-												<a href="https://twitter.com/jasingafi" target="_blank" class="btn btn-info">
-													<i class="ace-icon fa fa-twitter"></i>
-												</a>
-
-												<a href="https://www.instagram.com/jasingafi/" target="_blank" class="btn btn-danger">
-													<i class="ace-icon fa fa-instagram"></i>
-												</a>
-											</div>
 										</div><!-- /.widget-main -->
 
 										<div class="toolbar clearfix">
@@ -332,20 +308,6 @@
 	</div><!-- /.signup-box -->
 </div><!-- /.position-relative -->
 
-							<div class="navbar-fixed-top align-right">
-								<br />
-								&nbsp;
-								<a id="btn-login-dark" href="#">Oscuro</a>
-								&nbsp;
-								<span class="blue">/</span>
-								&nbsp;
-								<a id="btn-login-blur" href="#">Azul</a>
-								&nbsp;
-								<span class="blue">/</span>
-								&nbsp;
-								<a id="btn-login-light" href="#">Claro</a>
-								&nbsp; &nbsp; &nbsp;
-							</div>
 						</div>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
