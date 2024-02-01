@@ -1,7 +1,7 @@
 <?php
     // Detalles para la conexión a MySQL
-    $server     = "192.168.1.161:3302";
+    $server     = "localhost:3311";
     $user       = "root";
-    $password   = "p4ssw0rd";
+    $password   = "";
     $db         = "Cursos_1";
 ?>
